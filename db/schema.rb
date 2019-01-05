@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180720173011) do
+ActiveRecord::Schema.define(version: 20190105134334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 20180720173011) do
 
   add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true, using: :btree
   add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
-
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
@@ -226,15 +220,8 @@ ActiveRecord::Schema.define(version: 20180720173011) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["context"], name: "index_taggings_on_context", using: :btree
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
-  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
-  add_index "taggings", ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
-  add_index "taggings", ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
-  add_index "taggings", ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
@@ -256,24 +243,26 @@ ActiveRecord::Schema.define(version: 20180720173011) do
     t.integer  "user_id"
     t.string   "user_name"
     t.string   "name"
-    t.integer  "posts_count",      default: 0,        null: false
-    t.string   "waiting_on",       default: "admin",  null: false
+    t.integer  "posts_count",                  default: 0,        null: false
+    t.string   "waiting_on",                   default: "admin",  null: false
     t.datetime "last_post_date"
     t.datetime "closed_date"
     t.integer  "last_post_id"
-    t.string   "current_status",   default: "new",    null: false
-    t.boolean  "private",          default: false
+    t.string   "current_status",               default: "new",    null: false
+    t.boolean  "private",                      default: false
     t.integer  "assigned_user_id"
-    t.boolean  "cheatsheet",       default: false
-    t.integer  "points",           default: 0
+    t.boolean  "cheatsheet",                   default: false
+    t.integer  "points",                       default: 0
     t.text     "post_cache"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "locale"
-    t.integer  "doc_id",           default: 0
-    t.string   "channel",          default: "email"
-    t.string   "kind",             default: "ticket"
-    t.integer  "priority",         default: 1
+    t.integer  "doc_id",                       default: 0
+    t.string   "channel",                      default: "email"
+    t.string   "kind",                         default: "ticket"
+    t.integer  "priority",                     default: 1
+    t.integer  "student_number"
+    t.string   "course_and_batch", limit: 256
   end
 
   add_index "topics", ["kind"], name: "index_topics_on_kind", using: :btree
@@ -283,10 +272,10 @@ ActiveRecord::Schema.define(version: 20180720173011) do
     t.string   "login"
     t.string   "identity_url"
     t.string   "name"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                              default: false
     t.text     "bio"
     t.text     "signature"
-    t.string   "role",                   default: "user"
+    t.string   "role",                               default: "user"
     t.string   "home_phone"
     t.string   "work_phone"
     t.string   "cell_phone"
@@ -301,18 +290,18 @@ ActiveRecord::Schema.define(version: 20180720173011) do
     t.string   "thumbnail"
     t.string   "medium_image"
     t.string   "large_image"
-    t.string   "language",               default: "en"
-    t.integer  "assigned_ticket_count",  default: 0
-    t.integer  "topics_count",           default: 0
-    t.boolean  "active",                 default: true
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.string   "email",                  default: "",       null: false
-    t.string   "encrypted_password",     default: "",       null: false
+    t.string   "language",                           default: "en"
+    t.integer  "assigned_ticket_count",              default: 0
+    t.integer  "topics_count",                       default: 0
+    t.boolean  "active",                             default: true
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.string   "email",                              default: "",       null: false
+    t.string   "encrypted_password",                 default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,        null: false
+    t.integer  "sign_in_count",                      default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -326,16 +315,18 @@ ActiveRecord::Schema.define(version: 20180720173011) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",      default: 0
+    t.integer  "invitations_count",                  default: 0
     t.text     "invitation_message"
-    t.string   "time_zone",              default: "UTC"
+    t.string   "time_zone",                          default: "UTC"
     t.string   "profile_image"
-    t.boolean  "notify_on_private",      default: false
-    t.boolean  "notify_on_public",       default: false
-    t.boolean  "notify_on_reply",        default: false
+    t.boolean  "notify_on_private",                  default: false
+    t.boolean  "notify_on_public",                   default: false
+    t.boolean  "notify_on_reply",                    default: false
     t.string   "account_number"
-    t.string   "priority",               default: "normal"
+    t.string   "priority",                           default: "normal"
     t.text     "notes"
+    t.integer  "student_number"
+    t.string   "course_and_batch",       limit: 256
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -21,6 +21,7 @@ module Entity
     expose :team_list
     expose :tag_list
     expose :channel, documentation: { type: "String", desc: "The channel that the topic was created from."}
+    expose :student_number
     expose :kind, documentation: { type: "String", desc: "The kind of topic this is, can be 'ticket','discussion','chat', etc."}
     expose :priority, documentation: { type: "String", desc: "Priority of the topic, can be 'low', 'normal', 'high' or 'very_high'" }
     expose :posts, using: Entity::Post, if: { posts: true }

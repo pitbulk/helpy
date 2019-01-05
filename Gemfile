@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.11'
-
+gem 'rails-erd'
 # Use postgresql as the database for Active Record
 gem 'pg', '< 1.0.0'
 gem 'pg_search'

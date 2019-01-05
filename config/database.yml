@@ -10,6 +10,8 @@ development:
   database: helpy_development
   port: 5432
   host: localhost
+  username: vagrant
+  password: secret
 
 test:
   <<: *default
