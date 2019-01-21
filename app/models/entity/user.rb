@@ -33,5 +33,7 @@ module Entity
     expose :account_number
     expose :priority
     expose :notes
+    expose :student_number
+    expose :course_and_batch
   end
 end

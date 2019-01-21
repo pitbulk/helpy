@@ -20,8 +20,10 @@
             place_holder: t('activerecord.attributes.user.account_number', default: 'Account Number') if user.account_number.present? %>
             <br/>
           <% end %>
-          <%= best_in_place_if !user.is_agent?, user, :company, as: :input, url: admin_user_path(user),
-          place_holder: t('click_to_edit', what: t('activerecord.attributes.user.company'), default: 'click to edit %{what}') %><br/>
+          <%= best_in_place_if !user.is_agent?, user, :student_number, as: :input, url: admin_user_path(user),
+          place_holder: t('click_to_edit', what: t('activerecord.attributes.user.student_number'), default: 'click to edit %{what}') %><br/>
+          <%= best_in_place_if !user.is_agent?, user, :course_and_batch, as: :input, url: admin_user_path(user),
+          place_holder: t('click_to_edit', what: t('activerecord.attributes.user.course_and_batch'), default: 'click to edit %{what}') %><br/>
           <%= best_in_place_if !user.is_agent?, user, :email, as: :input, url: admin_user_path(user) %><br/>
 
         </span>

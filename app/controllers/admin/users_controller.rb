@@ -185,6 +185,8 @@ class Admin::UsersController < Admin::BaseController
       :notify_on_private,
       :notify_on_public,
       :notify_on_reply,
+      :student_number,
+      :course_and_batch,
     )
   end
 

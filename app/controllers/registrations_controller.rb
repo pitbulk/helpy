@@ -17,6 +17,8 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(
       :name,
       :email,
+      :course_and_batch,
+      :student_number,
       :password,
       :password_confirmation,
       :profile_image
@@ -29,7 +31,6 @@ class RegistrationsController < Devise::RegistrationsController
         :email,
         :bio,
         :avatar,
-        :company,
         :title,
         :home_phone,
         :cell_phone,
@@ -42,7 +43,10 @@ class RegistrationsController < Devise::RegistrationsController
         :time_zone,
         :password_confirmation,
         :current_password,
-        :profile_image
+        :profile_image,
+        :student_number,
+        :course_and_batch,
+        :account_number
       )
   end
 

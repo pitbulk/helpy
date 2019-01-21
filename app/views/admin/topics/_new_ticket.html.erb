@@ -36,7 +36,8 @@
       </div>
     <% end %>
     <br/>
-      <%= f.button :submit, t(:submit_start_discussion, default: 'Create Ticket'), class: 'btn btn-warning disableable submit-ticket' %>
+      
+      <%= f.button :button, "Sign Up".html_safe, class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing up..."} %>
       <%= f.button :submit, t(:submit_start_note, default: 'Create Note'), class: 'btn btn-default disableable submit-note' %>
     </div>
     <div class="col-md-4">

@@ -12,6 +12,8 @@
       <%= f.file_field :profile_image, label: "Avatar" unless cloudinary_enabled? %>
     </div>
     <%= f.input :company %>
+    <%= f.input :course_and_batch %>
+    <%= f.input :student_number %>
     <%= f.input :title %>
     <% if @validatable %>
     <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->

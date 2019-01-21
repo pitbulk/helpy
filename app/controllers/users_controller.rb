@@ -56,6 +56,8 @@
 #  notify_on_private      :boolean          default(FALSE)
 #  notify_on_public       :boolean          default(FALSE)
 #  notify_on_reply        :boolean          default(FALSE)
+#  course_and_batch       :string
+#  student_number         :string
 #  account_number         :string
 #  priority               :string           default("normal")
 #
@@ -92,9 +94,9 @@ class UsersController < ApplicationController
     def set_user
       @user = User.where('uid = ?', session['omniauth_uid']).first
     end
-
+ 
     def user_params
-      accessible = [ :name, :email, :bio, :company, :title, :time_zone ] # extend with your own params
+      accessible = [ :name, :email, :bio, :company, :title, :time_zone, :student_number, :course_and_batch ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end

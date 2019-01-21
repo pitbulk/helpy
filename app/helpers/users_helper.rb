@@ -57,6 +57,8 @@
 #  notify_on_public       :boolean          default(FALSE)
 #  notify_on_reply        :boolean          default(FALSE)
 #  account_number         :string
+#  course_and_batch        :string
+#  student_number         :string
 #  priority               :string           default("normal")
 #
 
