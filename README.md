@@ -97,7 +97,7 @@ Helpy leverages two external services to help out:
 
 - an email provider like Sendgrid
 - Google Analytics for stats (optional)
-
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 Getting Started:
 ----------------
