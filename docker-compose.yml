@@ -9,8 +9,8 @@ services:
     volumes_from:
       - helpy:ro
     ports:
-      - "80:80"
-      - "443:443"
+      - "8000:80"
+      - "4430:443"
     networks:
       - front
     restart: always
