@@ -20,7 +20,5 @@ test:
 production:
   <<: *default
   database: helpy_production
-  port: 5432
-  host: localhost
   username: helpy
   password: <%= ENV['helpy_DATABASE_PASSWORD'] %>
