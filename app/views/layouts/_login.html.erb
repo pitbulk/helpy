@@ -22,7 +22,7 @@
         <%= f.check_box :remember_me %>
     <% end -%>
     <div class="login-button">
-      <%= f.submit t('devise.sessions.new.sign_in', default: "Login"), class: 'btn btn-warning' %>
+      <%= f.button t('devise.sessions.new.sign_in', default: "Login"), class: 'btn btn-success', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."} %>
     </div>
   <% end %>
   </div>
@@ -42,5 +42,5 @@
 <div class="col-md-6 hidden-lg hidden-md">
 </div>
 <div class="col-md-6 modal-links">
-  <%= link_to I18n.t('devise.registrations.new.sign_up'), new_registration_path(resource_name) if forums? || tickets? %> | <%= link_to I18n.t('devise.passwords.new.forgot_your_password', default: "Forgot your password?"), '#', class: 'forgot-link' %>
+ <%= link_to I18n.t('devise.passwords.new.forgot_your_password', default: "Forgot your password?"), '#', class: 'forgot-link'  %>
 </div>
