@@ -25,6 +25,8 @@
         <br/><br/>
         <h4><%= t('contact_info', default: 'Contact Info') %></h4>
         <br/>
+        <%= f.input :student_number %>
+        <%= f.input :course_and_batch %>
         <%= f.input :email %>
         <%= f.input :home_phone %>
         <%= f.input :cell_phone %>
@@ -48,7 +50,8 @@
       </span>
       <% end %>
 
-      <%= f.submit t("save_changes"), class: 'btn btn-warning' %>
+      <%= f.button :button, "Save Changes".html_safe, class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving changes..."} %>
+
     </div>
   <% end %>
 

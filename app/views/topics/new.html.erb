@@ -89,7 +89,7 @@
       <!--<label>Tags:</label><br/>-->
       <%#= text_field_tag :tags %>
 
-      <%= f.submit t(:submit_start_discussion, default: 'Start Discussion'), class: 'btn btn-warning disableable', disabled: 'disabled' %>
+      <%= f.button :button, t(:submit_start_discussion, default: 'Start Discussion'), class: 'btn btn-success disableable', disabled: 'disabled', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating Ticket..."} %>
     </div>
   <% end -%>
 </div>

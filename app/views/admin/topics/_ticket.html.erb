@@ -74,7 +74,7 @@
           <%= f.file_field :attachments, multiple: true unless cloudinary_enabled? %>
         </div>
 
-        <%= f.submit t(:submit_reply), class: 'btn btn-warning disableable', disabled: false -%>
+        <%= f.button :button, t(:submit_reply), class: 'btn btn-success disableable', disabled: false, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Posting..."} -%>
         <label class="checkbox-inline" for "post_resolved">
           <%= f.check_box :resolved, inline: true unless @topic.current_status == 'closed' %>
           <%= t(:mark_as_resolved, default: "Mark as resolved") %>
