@@ -571,7 +571,8 @@ class Admin::TopicsController < Admin::BaseController
     @user.name = params[:topic][:user][:name]
     @user.login = params[:topic][:user][:email].split("@")[0]
     @user.email = params[:topic][:user][:email]
-    @user.home_phone = params[:topic][:user][:home_phone]
+    @user.student_number = params[:topic][:user][:student_number]
+    @user.course_and_batch = params[:topic][:user][:course_and_batch]
     @user.password = User.create_password
 
     @user.save

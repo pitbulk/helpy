@@ -189,7 +189,8 @@ class Topic < ActiveRecord::Base
     self.user = current_user ? current_user : User.find_by_email(params[:topic][:user][:email])
 
     unless self.user #User not found, lets build it
-      self.build_user(params[:topic].require(:user).permit(:email, :name)).signup_guest
+      accessible = [ :email, :name, :student_number, :course_and_batch ]
+      self.build_user(params[:topic].require(:user).permit(accessible)).signup_guest
     end
     self.user.persisted? && self.save
   end

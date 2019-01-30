@@ -60,7 +60,8 @@
 #  student_number         :string
 #  account_number         :string
 #  priority               :string           default("normal")
-#
+#  course_and_batch       :string
+#  student_number         :string
 
 class UsersController < ApplicationController
   before_action :set_user
@@ -97,7 +98,7 @@ class UsersController < ApplicationController
  
     def user_params
       accessible = [ :name, :email, :bio, :company, :title, :time_zone, :student_number, :course_and_batch ] # extend with your own params
-      accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+      accessible << [ :password, :password_confirmation, :student_number, :course_and_batch ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end
 end

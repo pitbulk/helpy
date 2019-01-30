@@ -50,17 +50,47 @@ Forum.create(
   private: true
 )
 Forum.create(
-  name: "Trash",
-  description: "Deleted discussions go here",
-  private: true
+  name: "Applications and Admissions",
+  description: "For all application and admission querries",
 )
 Forum.create(
-  name: "Doc comments",
-  description: "Contains comments to docs",
-  private: true
+  name: "Registrations and Courses",
+  description: "For all issues related to courses and registrations",
 )
 Forum.create(
-  name: "Questions and Answers",
+  name: "Fess, Payments and Billing",
+  description: "For all querries na dissues involving fee, billing and payments",
+)
+Forum.create(
+  name: "Withdraw and Resumptions",
+  description: "For all issues related to withdraws or resumptions from school",
+)
+Forum.create(
+  name: "Exemptions",
+  description: "All issues related to exemptions",
+)
+Forum.create(
+  name: "Programmes, Batch and Sessions",
+  description: "All issues related to batch transfers, change of program or session",
+)
+Forum.create(
+  name: "Grades and Results",
+  description: "For cases related to grades and results",
+)
+Forum.create(
+  name: "Modules and Assignments",
+  description: "Missing modules, module uploads and others related to modules",
+)
+Forum.create(
+  name: "Student, Lecturer and Staff Details on the Portal",
+  description: "Incorect emails, date of birth, locations and exam centers",
+)
+Forum.create(
+  name: "Lecturers and Course Associations",
+  description: "Issues related to course lecturer associations",
+)
+Forum.create(
+  name: "Other Questions and Answers",
   description: "Answers to how to do common things",
   layout: 'qna',
   allow_topic_voting: true,
@@ -72,21 +102,16 @@ Forum.create(
   allow_topic_voting: true
 )
 Forum.create(
-  name: "Idea Board",
-  description: "Submit Ideas for HR to consider",
-  allow_topic_voting: true,
-  allow_post_voting: true,
-  layout: 'grid'
-)
-Forum.create(
-  name: "Bugs and Issues",
-  description: "Report Bugs here!"
+  name: "Trash",
+  description: "Deleted discussions go here",
+  private: true
 )
 
 # Knowledgebase Categories
 Category.create(name:'Common Replies', title_tag: 'Common Agent Replies', meta_description: 'Common replies to questions (Visible only to agents)', front_page: false, active: false, visibility: 'internal')
-templates = Category.create(name:'Email templates', title_tag: 'Email Templates',  meta_description: 'Emails used by the system', front_page: false, active: false, visibility: 'internal')
 Category.create(name:'Getting Started',icon: 'eye-open', title_tag: 'Getting Started',meta_description:'Learn how to get started with our solution', front_page: true)
+Category.create(name:'Applications, Admissions and Portal Access', icon: 'question-sign', title_tag: 'Answers Questions about applications and accessin the student portal',meta_description:'If you have a questions about applicatsion and admissions, you might find the answer here', front_page: true)
+templates = Category.create(name:'Email templates', title_tag: 'Email Templates',  meta_description: 'Emails used by the system', front_page: false, active: false, visibility: 'internal')
 Category.create(name:'Top Issues',icon: 'exclamation-sign', title_tag: 'Solutions to Top Issues',meta_description:'Answers to our most frequent issues', front_page: true)
 Category.create(name:'General Questions', icon: 'question-sign', title_tag: 'Answers General Questions',meta_description:'If you have a question of a more general nature, you might find the answer here', front_page: true)
 Category.create(name:'Troubleshooting', icon: 'ok-circle', title_tag: 'Troubleshooting',meta_description:'Got a problem? Start here to learn more about solving it', front_page: true)
